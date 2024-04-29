@@ -100,7 +100,7 @@ const Map: React.FC = () => {
     const inputElement = document.getElementById("input") as HTMLInputElement;
     const autocomplete = new window.google.maps.places.Autocomplete(
       inputElement,
-      { types: [" geocode "] }
+      { types: ["geocode"] }
     );
 
     autocomplete.addListener("place_changed", () => {
@@ -116,7 +116,7 @@ const Map: React.FC = () => {
       });
     });
 
-  }, []);
+  }, [destination]);
 
   return (
     <div>
@@ -143,15 +143,15 @@ const Map: React.FC = () => {
               {isLoading ? "Loading..." : "Show Route"}
             </button>
           </div>
-          {/* Display the user location by the use of a marker */}
-          <Marker position={currentPosition} title='Your location' />
           {/* Draw polyline after the user had inserted the destination */}
           {polylinePath.length > 0 && (
             <Polyline
-              path={polylinePath}
-              options={{ strokeColor: "#FF0000" }}
+            path={polylinePath}
+            options={{ strokeColor: "#FF0000" }}
             />
           )}
+          {/* Display the user location by the use of a marker */}
+          <Marker position={currentPosition} title='Your location' />
         </GoogleMap>
       </div>
     </div>
