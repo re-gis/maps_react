@@ -7,7 +7,11 @@ import Map from './components/Map'
 
 function App() {
   return (
-    <LoadScript googleMapsApiKey="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg">
+    // <LoadScript googleMapsApiKey="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg">
+    <LoadScript
+      googleMapsApiKey="AIzaSyCeWa9GnzWXG9l6_DCTo4qq2SS9sYDV-Z8"
+      libraries={["places"]}
+    >
       <Map />
     </LoadScript>
   );
