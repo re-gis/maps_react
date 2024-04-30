@@ -11,6 +11,14 @@ function App() {
     <LoadScript
       googleMapsApiKey="AIzaSyCeWa9GnzWXG9l6_DCTo4qq2SS9sYDV-Z8"
       libraries={["places"]}
+      loadingElement={
+        <div>Loading...</div>
+      }
+      scriptProps={{
+        async: true,
+        defer: true,
+        onLoad: () => console.log('Google Maps API loaded successfully')
+      }}
     >
       <Map />
     </LoadScript>

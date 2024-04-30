@@ -115,7 +115,6 @@ const Map: React.FC = () => {
         lng: place.geometry.location.lng()
       });
     });
-
   }, [destination]);
 
   return (
@@ -140,18 +139,20 @@ const Map: React.FC = () => {
               className="bg-white text-black rounded font-bold border-none hover:bg-slate-200"
               disabled={isLoading}
             >
-              {isLoading ? "Loading..." : "Show Route"}
+              {isLoading ? "" : "Show Route"}
             </button>
           </div>
           {/* Draw polyline after the user had inserted the destination */}
           {polylinePath.length > 0 && (
-            <Polyline
-            path={polylinePath}
-            options={{ strokeColor: "#FF0000" }}
-            />
+            <>
+              <Polyline
+                path={polylinePath}
+                options={{ strokeColor: "#FF0000" }}
+              />
+              {/* Display the user location by the use of a marker */}
+              <Marker position={currentPosition} title='Your location' />
+            </>
           )}
-          {/* Display the user location by the use of a marker */}
-          <Marker position={currentPosition} title='Your location' />
         </GoogleMap>
       </div>
     </div>
